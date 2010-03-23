@@ -1,0 +1,23 @@
+<%= f.label :description %>
+<%= f.text_area :description %>
+<%= f.label :notes, "Additional Notes" %>
+<%= f.text_area :notes %>
+
+<% if @idea.new_record? or owner?(@idea.author_name) %>
+  <br />
+  <% name = current_user ? current_user.user_name : "" %>
+  <%= f.label :author_name %>
+  <%= f.text_field :author_name, :size => "20", :value => @idea.new_record? ? name : @idea.author_name %><p>This is optional in case you want your anonymity or use your nick otherwise. :)</p>
+<% end %>
+
+<% if authorized? %>
+  <%= f.label :status %>
+  <%= f.select :status, ['New', 'In-Progress', 'Done'] %><br />
+  <label>Person In-Charge</label>
+  <%= f.select :user_id, User.admins.collect{|user| [user.user_name, user.id]}, :include_blank => true %>
+<% end %>
+
+<script type="text/javascript">
+  CKEDITOR.replace('idea[description]')
+  CKEDITOR.replace('idea[notes]', { toolbar: 'Basic' })
+</script>

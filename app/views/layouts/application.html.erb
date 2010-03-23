@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Events</title>
+  <%= stylesheet_link_tag 'application', 'event_calendar' %>
+  <%= javascript_include_tag 'event_calendar' %>
+  <%= javascript_include_tag (APP_URL + '/javascripts/ckeditor/ckeditor.js') %>
+</head>
+<body>
+
+<p style="color: green"><%= flash[:notice] %></p>
+
+<%= yield %>
+
+</body>
+
+<p>&copy; <%= link_to 'G2iX', 'http://g2ix.com' %> <%= link_to 'Events', 'http://github.com/gretch/eventable' %> 2010 All rights reserved.</p>
+
+</html>

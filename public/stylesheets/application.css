@@ -1,0 +1,62 @@
+body { background-color: #000; color: #fff; }
+
+body, p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size:   13px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a { color: #000; }
+a:visited { color: #666; }
+a:hover { color: #fff; background-color:#000; }
+
+.fieldWithErrors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+.ideas_list {overflow:hidden; padding-top:20px; margin:0 28% 20px; width:95%; max-width:850px}
+.ideas_list * {z-index:0!important}
+.ideas_list ul, .ideas_list ul li {list-style:none; margin:0!important; padding:0; text-align:center; position:static}
+/* .ideas_list ul {height:1%}*/ 
+.ideas_list ul li.yui-u {border-width:1px 1px 1px 0; border-style:solid; border-color:#CCC; width:32%!important; padding:15px 0; height:280px!important; position:relative}
+.ideas_list ul li.item {background:#FFC; border:3px solid #026702!important; margin-top:-13px!important; padding:25px 0; width:34%!important}
+.ideas_list ul li.new { background:#ffff00; }
+.ideas_list ul li.in_progress { background:#808000; }
+.ideas_list ul li.done { background:#7fffd4;}

@@ -1,0 +1,28 @@
+<h1>Users</h1>
+
+<% unless @users.blank? %>
+<table>
+  <tr>
+    <th>Nick</th>
+    <th>Complete Name</th>
+    <th>Date joined</th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.user_name.blank? ? user.email : author_link(user.user_name) %></td>
+    <td><%= user.full_name %></td>
+    <td><%= user.created_at.strftime("%B %d, %Y") %></td>
+    <td><%= link_to 'View profile', user %></td>
+    <td><%= link_to 'Update', edit_user_path(user) if owner?(user) or authorized? %></td>
+    <td><%= link_to 'Delete Account', user, :confirm => 'Are you sure?', :method => :delete if owner?(user) %></td>
+  </tr>
+<% end %>
+</table>
+<% else %>
+  No users yet. Move along.
+<% end %>
+
+<br />
+
+<%= link_to 'Signup', signup_path %>

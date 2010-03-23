@@ -1,0 +1,17 @@
+<h4>Post comment:</h4>
+
+<% form_for(@comment) do |f| %>
+  <%= f.error_messages %>
+  <%= f.label :comment %>
+  <%= f.text_area :comment, :rows => 5, :cols => 1 %>
+  <%= f.hidden_field :idea_id, :value => idea_id %>
+  <p>
+    <%= f.submit 'Comment' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', ideas_path %>
+
+<script type="text/javascript">
+  CKEDITOR.replace('comment[comment]', { toolbar: 'Basic' })
+</script>

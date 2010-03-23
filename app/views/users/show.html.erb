@@ -1,0 +1,13 @@
+<h1>Viewing <%= @user.user_name %>'s Profile</h1>
+
+<%= @user.full_name %><br />
+<%= @user.email %><br />
+
+Posted: 0 ideas.
+
+Championed: 0 issues.
+<br />
+<% if current_user.eql?(@user) or authorized?  %>
+  <%= link_to 'Edit', edit_user_path(@user) %> |
+<% end %>
+<%= link_to 'Back', users_path %>

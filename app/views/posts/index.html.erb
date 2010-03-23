@@ -1,0 +1,43 @@
+<h1>Events @ the Techbar near you</h1>
+
+<%= event_calendar %>
+
+<% unless @posts.blank? %>
+<% @posts.each do |post| %>
+<div class="posts_list yui-gb">
+  <ul>
+    <li class="item yui-u <%= status_indicator(post.status) %>">
+
+    <h3>Event<%= post.description %></h3>
+
+    <% unless post.notes.blank? %>
+      Notes <%= post.notes %>
+    <% end %>
+
+    <% unless author_nick(post).blank? %>
+      by: <%= author_link(author_nick(post)) %>
+    <% end %>
+
+    <% unless post.user.nil? %>
+      MC: <%= author_link(post.user.user_name) %><br />
+    <% end %>
+
+    <%= link_to 'View', post %>
+    <%= link_to 'Update', edit_post_path(post) if authorized? %>
+    <%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete if authorized? %>
+    </li>
+  </ul>
+</div>
+<% end %>
+
+<br />
+<% else %>
+<% end %>
+
+<% if current_user %>
+  <%= link_to 'Logout', logout_path %>
+<% else %>
+  <%= link_to 'Login', login_path %>
+<% end %>
+
+

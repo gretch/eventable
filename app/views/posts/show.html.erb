@@ -1,0 +1,25 @@
+<h1>Viewing Idea</h1>
+
+<h2><%= @idea.description %></h2></br >
+
+Additional Notes:
+<%= @idea.notes %><br />
+
+Creator:
+<%= author_link(author_nick(@idea)) %><br />
+
+Championed by:
+<%= @idea.user.user_name if @user %>
+<br />
+
+<h3>Comments</h3>
+<ul>
+  <%= render :partial => "comment", :collection => @comments %>
+</ul>
+
+<%= render :partial => "new_comment", :locals => { :idea_id => @idea.id} if current_user %>
+
+<% if authorized? %>
+ <%= link_to 'Edit', edit_idea_path(@idea) %> |
+<% end %>
+<%= link_to 'Back', ideas_path %>
